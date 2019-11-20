@@ -20,13 +20,14 @@
                     debug: true,
                     request: 1
         });
+    console.log('ok');
+    Withings_client.callback();
+    console.log('ok2');    
     var token = Withings_client.getToken();
     if (token !== null) {
         console.log("I got the token: ", token)
     } else {
-        console.log('ok');
-        Withings_client.callback();
-        console.log('ok2');
+        console.log('NOT OK');
     }
     </script>
 
