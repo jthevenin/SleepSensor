@@ -10,6 +10,7 @@
 
 
 // Polyfills to support >= IE10
+/*
 import assign from 'core-js/fn/object/assign'
 import 'core-js/fn/array/includes'
 import 'core-js/fn/promise'
@@ -17,7 +18,7 @@ import 'core-js/fn/promise'
 
 import store from './store'
 import utils from './utils'
-
+*/
 // Work in progress
 // import Authentication from './Authentication/Authentication'
 
