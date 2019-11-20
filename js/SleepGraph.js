@@ -1,14 +1,13 @@
 ﻿"use strict";
-import Cookie from 'js-cookie';
 
 function auth(){
-    Cookie.set('SleepSensorToken', getAccessToken());
+    Cookies.set('SleepSensorToken', getAccessToken());
 }
 
 function displayChart() {
 
     //var AccessToken ='139648adfd755bf63552773b744f79ba7c14249d';
-    var SleepTab = getSleepData(Cookie.get('SleepSensorToken'));
+    var SleepTab = getSleepData(Cookies.get('SleepSensorToken'));
     var fallingAsleepDuration = getFallingAsleepDuration(SleepTab);
     var sleepDuration = getSleepDuration(SleepTab);
     console.log(fallingAsleepDuration);
