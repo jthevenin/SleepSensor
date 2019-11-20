@@ -1,8 +1,8 @@
-﻿"use strict";
+"use strict";
 
 function displayChart() {
     var AccessToken = getAccessToken();
-    //var AccessToken ='eee7fac3d0e11726fdb73c20ee4a840b4a6ad088';
+    //var AccessToken ='139648adfd755bf63552773b744f79ba7c14249d';
     var SleepTab = getSleepData(AccessToken);
     
     var fallingAsleepDuration = getFallingAsleepDuration(SleepTab);
@@ -79,7 +79,7 @@ function displayChart() {
             client_id: client_id,
             response_type: 'code',
             client_secret: client_secret,
-            token: "https://account.withings.com/oauth2/token",
+            token: 'https://account.withings.com/oauth2/token',
             authorization: 'https://account.withings.com/oauth2_user/authorize2',
             redirect_uri: redirect_uri,
             scopes: {request: ['user.activity'], require: ['user.activity']},
@@ -105,18 +105,22 @@ function displayChart() {
     function getSleepData(AccessToken) {
         var data_fields ='remsleepduration,lightsleepduration,deepsleepduration,durationtosleep';
 
-        var enddateymd = Date.now();
-        console.log(enddateymd);
+        var enddateymd = new Date();
+        var endString = enddateymd.getUTCFullYear()+'-'+(enddateymd.getUTCMonth()+1) +'-'+enddateymd.getUTCDate();
+        console.log(endString);
+
         var startdateymd = new Date();
-        startdateymd = enddateymd - 6;
-        console.log(startdateymd);
+        startdateymd.setDate(enddateymd.getDate()-6);
+        var startString = startdateymd.getUTCFullYear()+'-'+(startdateymd.getUTCMonth()+1) +'-'+startdateymd.getUTCDate();        
+        console.log(startString);
+
 
         // get sleep data (7 days)
-        var Url = "https://wbsapi.withings.net/v2/sleep?" + "action=getsummary" + "&startdateymd=" + startdateymd + "&enddateymd=" + enddateymd + "&data_fields=" + data_fields;
+        var Url = "https://wbsapi.withings.net/v2/sleep?" + "action=getsummary" + "&startdateymd=" + startString + "&enddateymd=" + endString + "&data_fields=" + data_fields;
 
         var request = new XMLHttpRequest();
         request.open("GET", Url, true);
-        request.setRequestHeader('Authorization','Bearer'+ AccessToken);
+        request.setRequestHeader('Authorization','Bearer '+ AccessToken);
 
         request.send();
         console.log(request);
