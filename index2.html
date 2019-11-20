@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Test JSO OAuth2</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>        
+        <script src="https://cdn.jsdelivr.net/npm/echarts@4.4.0/dist/echarts.min.js"></script>
+        <script type="text/javascript" src="js/jso-4.1.0/jso.js"></script>
+    </head>
+<body>
+    TEST:
+    <script>
+    var Withings_client = new jso.JSO({
+                    client_id: '1acd5f6a33235e47237e2b52e7aaada535e37b12526595b77d94ef15dcefc153',
+                    response_type: 'code',
+                    client_secret: '16b8bd569943c87d8bc2776df8dedafe56df54db71abde740f55e6a8da60a598',
+                    token: 'https://account.withings.com/oauth2/token',
+                    authorization: 'https://account.withings.com/oauth2_user/authorize2',
+                    redirect_uri: window.location.href,
+                    scopes: { request: ['user.activity'], require: ['user.activity'] },
+                    debug: true,
+                    request: 1
+        });
+        console.log('ok');
+        Withings_client.callback();
+        console.log('ok2');
+
+    client.getToken(opts)
+        .then((token) => {
+            console.log("I got the token: ", token)
+        })
+    
+    </script>
+
+
+</body>
+</html>
