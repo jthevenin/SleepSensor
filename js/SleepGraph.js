@@ -85,8 +85,9 @@ function displayChart() {
             debug: true,
             request: 1
         });
-
+        console.log('ok');
         Withings_client.callback();
+        console.log('ok2');
 
         Withings_client.getToken({  client_id: client_id,
                                     response_type: 'code',
