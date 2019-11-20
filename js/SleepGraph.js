@@ -69,7 +69,7 @@ function displayChart() {
         var client_secret = '1f992430981aa97da2dea42c837e1f347bd5a4ca0a8b4fca8a3fe4e86e6a0479';
         var scope = ['https://wbsapi.withings.net/v2/user.activity'];
         
-        // quelle url de callback ???
+               // quelle url de callback ???
         var redirect_uri = 'https://jthevenin.github.io/SleepSensor/';
 
 
@@ -85,8 +85,9 @@ function displayChart() {
             debug: true,
             request: 1
         });
-
+        console.log('ok');
         Withings_client.callback();
+        console.log('ok2');
 
         Withings_client.getToken({  client_id: client_id,
                                     response_type: 'code',
