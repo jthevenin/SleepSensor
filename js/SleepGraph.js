@@ -2,6 +2,7 @@
 
 function displayChart() {
     var AccessToken = getAccessToken();
+    //var AccessToken ='eee7fac3d0e11726fdb73c20ee4a840b4a6ad088';
     var SleepTab = getSleepData(AccessToken);
     
     var fallingAsleepDuration = getFallingAsleepDuration(SleepTab);
@@ -69,7 +70,7 @@ function displayChart() {
         var client_secret = '1f992430981aa97da2dea42c837e1f347bd5a4ca0a8b4fca8a3fe4e86e6a0479';
         var scope = ['https://wbsapi.withings.net/v2/user.activity'];
         
-               // quelle url de callback ???
+        // quelle url de callback ???
         var redirect_uri = 'https://jthevenin.github.io/SleepSensor/';
 
 
@@ -102,19 +103,24 @@ function displayChart() {
 
     // Get Sleep Data - Return tab 
     function getSleepData(AccessToken) {
+        var data_fields ='remsleepduration,lightsleepduration,deepsleepduration,durationtosleep';
+
         var enddateymd = Date.now();
+        console.log(enddateymd);
         var startdateymd = new Date();
-        startdateymd.setDate(enddateymd.getDate() - 6);
+        startdateymd = enddateymd - 6;
+        console.log(startdateymd);
 
         // get sleep data (7 days)
         var Url = "https://wbsapi.withings.net/v2/sleep?" + "action=getsummary" + "&startdateymd=" + startdateymd + "&enddateymd=" + enddateymd + "&data_fields=" + data_fields;
 
         var request = new XMLHttpRequest();
-        request.open("GET", Url, false);
-        request.setRequestHeader("Authorization: Bearer ", AccessToken);
+        request.open("GET", Url, true);
+        request.setRequestHeader('Authorization','Bearer'+ AccessToken);
 
         request.send();
-        var res = request.responseXML.series;
+        console.log(request);
+        var res = request.responseXML;
         console.log(res);
         return res;
     }
