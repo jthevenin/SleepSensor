@@ -11,7 +11,7 @@ function displayChart() {
     
     // date List (X) ==> Récupérer la date exacte
     var date;
-    var enddateymd = new Date.now();
+    var enddateymd = Date.now();
 
     for (var day = 0; day < 6; day++) {
         var d = new Date();
@@ -102,7 +102,7 @@ function displayChart() {
 
     // Get Sleep Data - Return tab 
     function getSleepData(AccessToken) {
-        var enddateymd = new Date.now();
+        var enddateymd = Date.now();
         var startdateymd = new Date();
         startdateymd.setDate(enddateymd.getDate() - 6);
 
