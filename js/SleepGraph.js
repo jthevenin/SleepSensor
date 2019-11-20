@@ -11,7 +11,7 @@ function displayChart() {
     
     // date List (X) ==> Récupérer la date exacte
     var date;
-    var enddateymd = new Date.now();
+    var enddateymd = Date.now();
 
     for (var day = 0; day < 6; day++) {
         var d = new Date();
@@ -69,7 +69,7 @@ function displayChart() {
         var client_secret = '1f992430981aa97da2dea42c837e1f347bd5a4ca0a8b4fca8a3fe4e86e6a0479';
         var scope = ['https://wbsapi.withings.net/v2/user.activity'];
         
-        // quelle url de callback ???
+               // quelle url de callback ???
         var redirect_uri = 'https://jthevenin.github.io/SleepSensor/';
 
 
@@ -102,7 +102,7 @@ function displayChart() {
 
     // Get Sleep Data - Return tab 
     function getSleepData(AccessToken) {
-        var enddateymd = new Date.now();
+        var enddateymd = Date.now();
         var startdateymd = new Date();
         startdateymd.setDate(enddateymd.getDate() - 6);
 
