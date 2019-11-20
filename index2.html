@@ -20,6 +20,7 @@
                     debug: true,
                     request: 1
         });
+    setTimeout(function (){console.log('wait')}, 10000);
     var token = Withings_client.checkToken();
     if (token !== null) {
             console.log("I got the token: ", token)
