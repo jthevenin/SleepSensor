@@ -1,4 +1,5 @@
 ﻿"use strict";
+import Cookie from 'js-cookie';
 
 function auth(){
     Cookie.set('SleepSensorToken', getAccessToken());
