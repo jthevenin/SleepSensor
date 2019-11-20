@@ -70,7 +70,7 @@ function displayChart() {
         var scope = ['https://wbsapi.withings.net/v2/user.activity'];
         
         // quelle url de callback ???
-        var redirect_uri = 'http://localhost:80/SleepSensor';
+        var redirect_uri = 'https://jthevenin.github.io/SleepSensor/';
 
 
 
