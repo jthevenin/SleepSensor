@@ -9,16 +9,33 @@
 <body>
     TEST1:
     <script>
-    var Withings_client = new jso.JSO({
+    /*var Withings_client = new jso.JSO({
                     client_id: '1acd5f6a33235e47237e2b52e7aaada535e37b12526595b77d94ef15dcefc153',
                     response_type: 'code',
                     client_secret: '16b8bd569943c87d8bc2776df8dedafe56df54db71abde740f55e6a8da60a598',
                     token: 'https://account.withings.com/oauth2/token',
                     authorization: 'https://account.withings.com/oauth2_user/authorize2',
-                    redirect_uri: 'https://jthevenin.github.io/SleepSensor/',
+                    redirect_uri: window.location.href,
                     scopes: { request: ['user.activity'], require: ['user.activity'] },
                     debug: true,
                     request: 1
+        });*/
+
+        var client_id = 'a7036bab0c2585592d4b7410bb9e4b76fc316cfca05f7ed2709aeefbbbe3264f';
+        var client_secret = '1f992430981aa97da2dea42c837e1f347bd5a4ca0a8b4fca8a3fe4e86e6a0479';
+        var scope = ['https://wbsapi.withings.net/v2/user.activity'];
+        var redirect_uri = 'https://jthevenin.github.io/SleepSensor/';
+
+        var Withings_client = new jso.JSO({            
+            client_id: client_id,
+            response_type: 'code',
+            client_secret: client_secret,
+            token: 'https://account.withings.com/oauth2/token',
+            authorization: 'https://account.withings.com/oauth2_user/authorize2',
+            redirect_uri: redirect_uri,
+            scopes: {request: ['user.activity'], require: ['user.activity']},
+            debug: true,
+            request: 1
         });
     setTimeout(function (){console.log('wait')}, 10000);
     var token = Withings_client.checkToken();
