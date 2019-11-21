@@ -38,11 +38,12 @@
             request: 1
         });
     setTimeout(function (){console.log('wait')}, 10000);
+    var authorize_code = Withings_client.callback();
     var token = Withings_client.checkToken();
     if (token !== null) {
             console.log("I got the token: ", token)
     } else {
-        Withings_client.callback();
+        
         console.log('Getting token!' + Withings_client.getToken());
         
     }
