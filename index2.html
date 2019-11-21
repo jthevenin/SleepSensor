@@ -44,7 +44,10 @@
             console.log("I got the token: ", token)
     } else {
         console.log(authorize_code);
-        console.log('Getting token!' + Withings_client.getToken());
+        //console.log('Getting token!' + Withings_client.getToken();
+        Withings_client.getToken().then((token)=>{
+            console.log("I got the token: ", token)
+        });
         
     }
     debugger;
