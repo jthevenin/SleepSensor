@@ -195,12 +195,10 @@ class JSO extends EventEmitter {
     let tokenRequest = {
       'grant_type': 'authorization_code',
       'code': object.code
-	}
-	console.log(object.code)
+    }
 
     if (state.hasOwnProperty('redirect_uri')) {
-	  tokenRequest.redirect_uri = state.redirect_uri
-	  console.log(object.code)
+      tokenRequest.redirect_uri = state.redirect_uri
     }
 
     let opts = {
