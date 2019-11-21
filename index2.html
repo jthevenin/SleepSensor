@@ -46,8 +46,7 @@
         //console.log(authorize_code);
         //console.log('Getting token!' + Withings_client.getToken();
         Withings_client.getToken({
-                                    grant_type : "authorization_code",
-                                    code: code
+                                    grant_type : "authorization_code"
                                     }).then((access_token)=>{
             console.log("I got the token: ", access_token)
         });
