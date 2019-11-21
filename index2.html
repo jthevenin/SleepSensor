@@ -45,7 +45,12 @@
     } else {
         //console.log(authorize_code);
         //console.log('Getting token!' + Withings_client.getToken();
-        Withings_client.getToken().then((token)=>{
+        Withings_client.getToken({  client_id: client_id,
+                                    response_type: 'code',
+                                    client_secret: client_secret,
+                                    redirect_uri: redirect_uri,
+                                    scopes: {request: ['user.activity'], require: ['user.activity']},
+                                    token: "https://account.withings.com/oauth2/token"}).then((token)=>{
             console.log("I got the token: ", token)
         });
         
